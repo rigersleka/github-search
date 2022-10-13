@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import githubContext from "../../context/github/githubContext";
 
 const SearchUser = () => {
+  
   const [userSearch, setUserSearch] = useState('');
   const gc = useContext(githubContext);
 
