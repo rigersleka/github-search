@@ -2,19 +2,18 @@ import React, { useContext, useState } from "react";
 import githubContext from "../../context/github/githubContext";
 
 const SearchUser = () => {
-  const [text, setText] = useState("");
-
+  const [userSearch, setUserSearch] = useState('');
   const gc = useContext(githubContext);
 
   const onChange = (e) => {
-    setText(e.target.value);
+    setUserSearch(e.target.value);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    gc.searchUsers(setText);
-    setText("");
+    gc.searchUsers(userSearch);
+    setUserSearch('');
   };
 
   return (
@@ -26,7 +25,7 @@ const SearchUser = () => {
             type="text"
             name="text"
             placeholder="Search Users..."
-            value={text}
+            value={userSearch}
             onChange={onChange}
           />
           <input

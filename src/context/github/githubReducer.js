@@ -1,10 +1,6 @@
-import {
-  SEARCH_USERS,
-  SET_LOADING,
-  GET_USER,
-} from "../types";
+import { SEARCH_USERS, SET_LOADING, GET_USER } from "../types";
 
-const githubReducer = (state, action) => {
+const githubReducer =  (state, action) => {
   switch (action.type) {
     case SEARCH_USERS:
       return {
