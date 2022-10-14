@@ -5,6 +5,7 @@ import GithubState from "./context/github/GithubState";
 
 /* Import Component */
 import Home from "./components/pages/Home";
+import UserDetail from "./components/user/UserDetail";
 import NotFound from "./components/pages/NotFound";
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
       <GithubState>
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/user/:login" element={<UserDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>

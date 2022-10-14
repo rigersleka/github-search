@@ -4,7 +4,7 @@ import axios from "axios";
 /* Import Context */
 import githubContext from "./githubContext";
 import githubReducer from "./githubReducer";
-import { SEARCH_USERS, SET_LOADING, GET_USER } from "../types";
+import { SEARCH_USERS, SET_LOADING, GET_USER, GET_REPOS } from "../types";
 
 let githubClientId;
 let githubClientSecret;
@@ -47,6 +47,19 @@ const GithubState = (props) => {
     dispatch({ type: GET_USER, payload: res.data });
   };
 
+   // Get Repos
+   const getUserRepos = async (userName) => {
+    setLoading();
+    const res = await axios.get(
+      `https://api.github.com/users/${userName}/repos?per_page=5&sort=created:asc&client_id=${githubClientId}&client_secret=${githubClientSecret}`
+    );
+
+    dispatch({
+      type: GET_REPOS,
+      payload: res.data,
+    });
+  };
+
   // Set Loading
   const setLoading = () => dispatch({ type: SET_LOADING });
 
@@ -57,6 +70,7 @@ const GithubState = (props) => {
         user: state.user,
         searchUsers,
         getUser,
+        getUserRepos
       }}
     >
       {props.children}
