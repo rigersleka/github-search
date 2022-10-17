@@ -6,6 +6,7 @@ import githubContext from "./githubContext";
 import githubReducer from "./githubReducer";
 import { SEARCH_USERS, SET_LOADING, GET_USER, GET_REPOS } from "../types";
 
+/* Cliend Id & Secret */
 let githubClientId;
 let githubClientSecret;
 

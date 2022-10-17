@@ -6,7 +6,6 @@ const UserDetail = ({ match }) => {
   const gc = useContext(githubContext);
 
   useEffect(() => {
-    debugger;
     gc.getUser(match.params.login);
     gc.getUserRepos(match.params.login);
     // eslint-disable-next-line
