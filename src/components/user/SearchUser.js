@@ -1,21 +1,28 @@
 import React, { useContext, useState } from "react";
+
+/* Import Context */
+import alertContext from "../../context/alert/alertContext";
 import githubContext from "../../context/github/githubContext";
 
 const SearchUser = () => {
-  
-  const [userSearch, setUserSearch] = useState('');
+  const [userSearch, setUserSearch] = useState("");
   const gc = useContext(githubContext);
+  const al = useContext(alertContext);
 
-  const onChange = (e) => {
+  const onChange = e => {
     setUserSearch(e.target.value);
-  };
-
+  }
+  
   const onSubmit = (e) => {
     e.preventDefault();
-
+    if(userSearch === ''){
+      al.setAlert('Please Enter Something', 'info');
+      return;
+    }
     gc.searchUsers(userSearch);
     setUserSearch('');
-  };
+    
+  }
 
   return (
     <div>
@@ -36,7 +43,11 @@ const SearchUser = () => {
           />
         </div>
       </form>
-      {gc.users.length > 0 ? <button className="btn btn-warnning btn-block" onClick={gc.userClear}>Clear</button> : null}
+      {gc.users.length > 0 ? (
+        <button className="btn btn-warnning btn-block" onClick={gc.userClear}>
+          Clear
+        </button>
+      ) : null}
     </div>
   );
 };
