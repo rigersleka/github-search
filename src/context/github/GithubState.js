@@ -28,6 +28,7 @@ const GithubState = (props) => {
   const initialState = {
     users: [],
     user: {},
+    loading: false,
   };
 
   const [state, dispatch] = useReducer(githubReducer, initialState);
@@ -78,6 +79,7 @@ const GithubState = (props) => {
       value={{
         users: state.users,
         user: state.user,
+        loading: state.loading,
         searchUsers,
         userClear,
         getUser,

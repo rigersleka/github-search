@@ -1,18 +1,27 @@
 import React, { useContext } from "react";
 import githubContext from "../../context/github/githubContext";
+
+/* Import Layout and Componnet*/
+import Spinner from "../layout/Spinner";
 import UserItem from "./UserItem";
 
 const UsersList = () => {
   const gc = useContext(githubContext);
-  const { users } = gc;
+  const { loading, users } = gc;
 
   return (
-    <div style={userStyle}>
-      <h4>User List</h4>
-      {users.map((user) => (
-        <UserItem key={user.id} user={user} />
-      ))}
-    </div>
+    <>
+      {!loading ? (
+        <div style={userStyle}>
+          <h4>User List</h4>
+          {users.map((user) => (
+            <UserItem key={user.id} user={user} />
+          ))}
+        </div>
+      ) : (
+        <Spinner />
+      )}
+    </>
   );
 };
 
