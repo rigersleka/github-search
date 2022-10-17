@@ -8,7 +8,7 @@ const UsersList = () => {
 
   return (
     <div style={userStyle}>
-      <h1>User List</h1>
+      <h4>User List</h4>
       {users.map((user) => (
         <UserItem key={user.id} user={user} />
       ))}
@@ -17,9 +17,9 @@ const UsersList = () => {
 };
 
 const userStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gridGap: '1rem'
-}
+  display: "grid",
+  gridTemplateColumns: "repeat(3, 1fr)",
+  gridGap: "1rem",
+};
 
 export default UsersList;
