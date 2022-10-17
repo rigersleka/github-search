@@ -2,6 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Functionalities:
+  - search users of git
+  - list of users who were searched
+Libraries:
+  - reactJs 18+
+    - axios
+    - react-router-dom
+    - contextApi 
+
 ## Available Scripts
 
 In the project directory, you can run:
