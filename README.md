@@ -11,6 +11,8 @@ Libraries:
     - react-router-dom
     - contextApi 
 
+Deployed using Netifly: <a href="https://githubsearch-rleka.netlify.app/" target="_blank">LIVE DEMO</a>
+
 ## Available Scripts
 
 In the project directory, you can run:
