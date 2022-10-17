@@ -36,6 +36,7 @@ const SearchUser = () => {
           />
         </div>
       </form>
+      {gc.users.length > 0 ? <button className="btn btn-warnning btn-block" onClick={gc.userClear}>Clear</button> : null}
     </div>
   );
 };
