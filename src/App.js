@@ -9,27 +9,34 @@ import AlertState from "./context/alert/AlertState";
 /* Import Component */
 import Home from "./components/pages/Home";
 import UserDetail from "./components/user/UserDetail";
-import Alert from "./components/layout/Alert";
+
 import NotFound from "./components/pages/NotFound";
+
+/* Import Layoyt */
+import Alert from "./components/layout/Alert";
+import Navbar from "./components/layout/Navbar";
+import About from "./components/pages/About";
 
 function App() {
   return (
-    <div className="App">
-      <header>Github Search</header>
-
       <GithubState>
         <AlertState>
           <Alert />
           <Router>
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route exact path="/user/:login" element={<UserDetail />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <div className="App">
+              <Navbar title="Github Finder" icon="fab fa-github" />
+              <div className="container">
+                <Routes>
+                  <Route exact path="/" element={<Home />} />
+                  <Route exact path="/user/:login" element={<UserDetail />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </div>
+            </div>
           </Router>
         </AlertState>
       </GithubState>
-    </div>
   );
 }
 
