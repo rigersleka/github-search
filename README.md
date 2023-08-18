@@ -3,8 +3,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Functionalities:
-  - search users of git
-  - list of users who were searched
+  - Fetch data from an API
+  - Display list of data (users) for each search
+  - Filter and show the relevant data for each search users of git
+  
 Libraries:
   - reactJs 18+
     - axios
